@@ -26,8 +26,9 @@ h6 {
 }
 
 .lead {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 400;
+    color: red;
 }
 
 .intro-header {
