@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feria Laboral - FAE - FING</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function() {
+            $().ajaxStart(function() {
+                $('#loading').show();
+                $('#result').hide();
+            }).ajaxStop(function() {
+                $('#loading').hide();
+                $('#result').fadeIn('slow');
+            });
+            $('#form').submit(function() {
+                //var aux = $('#nombre').val();
+                //alert(aux);
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        if(data==1){
+                            $("#enviar").prop('disabled', true );
+                            $('#result-error').css('display','none');
+                            $('#result-ok').css('display','block');
+                        }
+                        else if(data==2){
+                            alert('Complete todos los datos');
+                            //alert(data);
+                        }                               
+                        else{
+                            alert(data);
+                            $('#result-error').css('display','block');
+                        }
+                    }
+                })
+                return false;
+            }); 
+        })  
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo-img">
+                    <img src="img/logo_usach.png" alt="" class="logo-usach" />
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Feria Laboral</a>
+                    </li>
+                    <li>
+                        <a href="alumnos.html">Alumnos</a>
+                    </li>
+                    <li>
+                        <a href="empresas.html">Empresas</a>
+                    </li>
+                    <li>
+                        <a href="agenda.html">Agenda</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+
+	<a  name="informacion"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-sm-9">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Formulario de Inscripción</h2>
+
+                    <form class="form-horizontal"  id="form" name="form" method="post" action="datos/envio_inscripcion.php">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                              <div class="form-group">
+                                <label for="inputNombreComercial" class="col-sm-3 control-label">Nombre Comercial *</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control input-sm" id="nombreComercial" name="nombreComercial" placeholder="Nombre Comercial o Fantasía" maxlength="100" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputRazonSocial" class="col-sm-3 control-label">Razón Social *</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control input-sm" id="razonSocial" name="razonSocial" placeholder="Razón Social" maxlength="100" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputGiro" class="col-sm-3 control-label">Giro *</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control input-sm" id="giro" name="giro" placeholder="Giro" maxlength="100" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputRutEmpresa" class="col-sm-3 control-label">RUT *</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control input-sm" id="rutEmpresa" name="rutEmpresa" placeholder="RUT Empresa" maxlength="12" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputDirección" class="col-sm-3 control-label">Dirección *</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control input-sm" id="direccion" name="direccion" placeholder="Dirección" maxlength="200" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputTelefono" class="col-sm-3 control-label">Teléfono *</label>
+                                <div class="col-sm-9">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">+56</span>
+                                    <input type="text" class="form-control input-sm" id="telefono" name="telefono" placeholder="Teléfono" maxlength="9" required="required">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputSitioWeb" class="col-sm-3 control-label">Sitio Web *</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control input-sm" id="sitioWeb" name="sitioWeb" placeholder="Sitio Web" maxlength="100" required="required">
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                              <div class="form-group">
+                                <label for="inputNombreEncargadoPago" class="col-sm-4 control-label">Encargado de Pago *</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class="form-control input-sm" id="nombreEncargadoPago" name="nombreEncargadoPago" placeholder="Nombre Encargado de Pago Facturas" maxlength="100" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputTelefonoEncargadoPago" class="col-sm-4 control-label">Teléfono Encargado de Pago *</label>
+                                <div class="col-sm-8">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">+56</span>
+                                    <input type="text" class="form-control input-sm" id="telefonoEncargadoPago" name="telefonoEncargadoPago" placeholder="Teléfono Encargado de Pago Facturas" maxlength="9" required="required">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputCorreoEncargadoPago" class="col-sm-4 control-label">Correo Encargado de Pago *</label>
+                                <div class="col-sm-8">
+                                  <div class="input-group">
+                                      <span class="input-group-addon">@</span>
+                                      <input type="email" class="form-control input-sm" id="correoEncargadoPago" name="correoEncargadoPago" placeholder="Correo Encargado de Pago Facturas" maxlength="50" required="required">
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputAsunto" class="col-sm-4 control-label">Su empresa participa como *</label>
+                                <div class="col-sm-8">
+                                  <select class="form-control input-sm" id="participaComo" name="participaComo">
+                                        <option value="Auspicidora">Empresa Auspicidora &nbsp; &nbsp; &nbsp; ($ 300.000)</option>
+                                        <option value="Reclutadora 450.000">Empresa Reclutadora &nbsp; &nbsp; &nbsp; ($ 450.000)</option>
+                                        <option value="Reclutadora 700.000">Empresa Reclutadora &nbsp; &nbsp; &nbsp; ($ 700.000)</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputAsunto" class="col-sm-4 control-label">Declaro haber leído las Bases de la Feria Laboral *</label>
+                                <div class="col-sm-8">
+                                  <input type="checkbox" id="acepto" name="acepto" value="checked">
+                                  &nbsp;&nbsp;<span class="small"><a href="docs/Bases_Feria_Laboral_2017.pdf" target="_blank">Ver Bases</a></span>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                              <div class="form-group">
+                                <label for="inputNombreRepresentante" class="col-sm-4 control-label">Representante de la Empresa *</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class="form-control input-sm" id="nombreRepresentante" name="nombreRepresentante" placeholder="Representante de la Empresa en la Feria Laboral" maxlength="100" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputTelefonoRepresentante" class="col-sm-4 control-label">Teléfono Directo Representante *</label>
+                                <div class="col-sm-8">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">+56</span>
+                                    <input type="text" class="form-control input-sm" id="telefonoRepresentante" name="telefonoRepresentante" placeholder="Teléfono Directo Representante de la Empresa en Feria Laboral" maxlength="9" required="required">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputCelularRepresentante" class="col-sm-4 control-label">Teléfono Celular Representante *</label>
+                                <div class="col-sm-8">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">+56</span>
+                                    <input type="text" class="form-control input-sm" id="celularRepresentante" name="celularRepresentante" placeholder="Teléfono Celular Representante de la Empresa en Feria Laboral" maxlength="9" required="required">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputCorreoRepresentante" class="col-sm-4 control-label">Correo Representante *</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">@</span>
+                                        <input type="email" class="form-control input-sm" id="correoRepresentante" name="correoRepresentante" placeholder="Correo Electrónico Representante de la Empresa" maxlength="50" required="required">
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                              <!-- Representante Adicional -->
+                              <div class="form-group">
+                                <label for="inputNombreAdicional" class="col-sm-4 control-label">Representante Adicional de la Empresa</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class="form-control input-sm" id="nombreAdicional" name="nombreAdicional" placeholder="Representante Adicional de la Empresa en la Feria Laboral" maxlength="100">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputTelefonoAdicional" class="col-sm-4 control-label">Teléfono Directo Representante Adicional</label>
+                                <div class="col-sm-8">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">+56</span>
+                                    <input type="text" class="form-control input-sm" id="telefonoAdicional" name="telefonoAdicional" placeholder="Teléfono Directo Representante Adicional de la Empresa" maxlength="9">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputCelularAdicional" class="col-sm-4 control-label">Teléfono Celular Representante Adicional</label>
+                                <div class="col-sm-8">
+                                  <div class="input-group">
+                                    <span class="input-group-addon">+56</span>
+                                    <input type="text" class="form-control input-sm" id="celularAdicional" name="celularAdicional" placeholder="Teléfono Celular Representante Adicional de la Empresa" maxlength="9">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputCorreoAdicional" class="col-sm-4 control-label">Correo Representante Adicional</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">@</span>
+                                        <input type="email" class="form-control input-sm" id="correoAdicional" name="correoAdicional" placeholder="Correo Electrónico Representante Adicional" maxlength="50">
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="inputCharla" class="col-sm-4 control-label">¿Su Empresa dictará charla? *</label>
+                                <div class="col-sm-8">
+                                  <select class="form-control input-sm" id="charla" name="charla">
+                                        <option value="SI">Sí &nbsp; $ 200.000</option>
+                                        <option value="NO" selected="selected">No</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputMobiliario" class="col-sm-4 control-label">Cómo equipará su módulo *</label>
+                                <div class="col-sm-8">
+                                  <select class="form-control input-sm" id="mobiliario" name="mobiliario">
+                                        <option value="Mobiliario Propio">Mobiliario Propio</option>
+                                        <option value="Mobiliario Básico">Mobiliario básico que ofrece la Organización</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputCenefa" class="col-sm-4 control-label">Nombre para Cenefa del Módulo *</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class="form-control input-sm" id="cenefa" name="cenefa" placeholder="Nombre para Cenefa del Módulo" maxlength="200" required="required">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputComentario" class="col-sm-4 control-label">Comentario</label>
+                                <div class="col-sm-8">
+                                  <textarea class="form-control input-sm" id="comentario" name="comentario" rows="3" placeholder="Ingrese algún comentario" maxlength="1000"></textarea>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                  <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Enviar" />
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div id="result-ok" class="alert alert-success" role="alert" style="display:none;"><span class="glyphicon-class"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&nbsp; Mensaje Enviado con Éxito</div>
+                        <div id="result-error" class="alert alert-danger" role="alert" style="display:none;"><span class="glyphicon-class"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp; Sucedió un error al enviar los datos.<br/>Si el problema persiste favor de contactar a ferialaboral@usach.cl e indicar el problema</div>
+                    </form>
+
+                    <div class="panel-group" id="accordion">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Antedecentes para Orden de Compra</a>
+                          </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <p>Para la emisión de la orden de compra debe realizarse con la siguiente información</p>
+                            <table class="table table-bordered">
+                              <tbody>
+                                <tr><th colspan="2" style="text-transform: uppercase;">Antedecentes del Proveedor:</td></tr>
+                                <tr><th>Bien o Servicio a Contratar</th><td>Participación en la Feria Laboral FAE-FING USACH 2017</td></tr>
+                                <tr><th>Razón Social</th><td>Fundación Universidad Empresa FUDE</td></tr>
+                                <tr><th>RUT</th><td>72.499.400-8</td></tr>
+                                <tr><th>Giro, actividad económica SII</th><td>Promoción del Desarrollo Tecnológico</td></tr>
+                                <tr><th>Teléfono</th><td>2271 81400</td></tr>
+                                <tr><th>Sitio Web</th><td><a href="http://www.fude.usach.cl/" target="_blank">www.fude.usach.cl/</a></td></tr>
+                                <tr><th>Correo</th><td><a href="mailto:sdt@usach.cl">sdt@usach.cl</a></td></tr>
+                                <tr><th>Dirección</th><td>Alameda Bernardo OHiigins 1611, Santiago.</td></tr>
+                                <tr><th colspan="2" style="text-transform: uppercase;">Enviar Documentación a:</td></tr>
+                                <tr><th>Nombre Contacto</th><td>Laura Lillo</td></tr>
+                                <tr><th>Cargo</th><td>Encargada de Finanzas Feria Laboral 2017</td></tr>
+                                <tr><th>Teléfono</th><td>2271 80813</td></tr>
+                                <tr><th>Correo</th><td><a href="mailto:laura.lillo@usach.cl">laura.lillo@usach.cl</a></td></tr>
+                              </tbody>
+                            </table>
+                            <p>Nota: La Fundación Universidad Empresa (FUDE) es quien elabora las facturas, sin embargo, la tramitación de los pagos es administrada por la organización de la feria laboral.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Antecedentes para Pago</a>
+                          </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <p>El pago se realiza por medio de transferia electrónica o depósito bancario a:</p>
+                            <table class="table table-bordered">
+                              <tbody>
+                                <tr><th>Razón Social</th><td>Fundación Universidad Empresa FUDE</td></tr>
+                                <tr><th>RUT</th><td>72.499.400-8</td></tr>
+                                <tr><th>Banco</th><td>BCI</td></tr>
+                                <tr><th>Cta.Cte</th><td>10503382</td></tr>
+                                <tr><th>Correo</th><td><a href="mailto:laura.lillo@usach.cl">laura.lillo@usach.cl</a></td></tr>
+                              </tbody>
+                            </table>
+                            <p>Recuerde notificar su pago adjuntando su Notificación de Transferencia Electrónica o Comprobante de Depósito mediante correo electrócnico a Laura Lillo (laura.lillo@usach.cl) para confirmar el pago de su partición en la Feria Laboral FAE-FING USACH 2017.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <!--div class="col-lg-6 col-sm-6">
+                    <img class="img-responsive" src="img/contacto.png" alt="" style="padding-top: 30px; max-width: 300px;">
+                </div-->
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <!-- /.content-section-a -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="index.html">Feria Laboral</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="alumnos.html">Alumnos</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="empresas.html">Empresas</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="agenda.html">Agenda</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Feria Laboral FAE-FING.<br>Universidad de Santiago de Chile.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

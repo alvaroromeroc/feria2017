@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feria Laboral - FAE - FING</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function() {
+            $().ajaxStart(function() {
+                $('#loading').show();
+                $('#result').hide();
+            }).ajaxStop(function() {
+                $('#loading').hide();
+                $('#result').fadeIn('slow');
+            });
+            $('#form').submit(function() {
+                //var aux = $('#nombre').val();
+                //alert(aux);
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        if(data==1){
+                            $('#enviar').css('background','grey');
+                            $("#enviar").prop('disabled', true );
+                            $('#result').removeClass('msg-error').addClass('msg-ok');
+                            $('#result').html('Mensaje Enviado con Éxito');
+                        }
+                        else if(data==2){
+                            alert('Complete todos los datos');
+                            //alert(data);
+                        }                               
+                        else{
+                            alert(data);
+                            $('#result').addClass('msg-error');
+                            $('#result').html('Error!');
+                        }
+                    }
+                })
+                return false;
+            }); 
+        })  
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo-img">
+                    <img src="img/logo_usach.png" alt="" class="logo-usach" />
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Feria Laboral</a>
+                    </li>
+                    <li>
+                        <a href="alumnos.html">Alumnos</a>
+                    </li>
+                    <li>
+                        <a href="empresas.html">Empresas</a>
+                    </li>
+                    <li>
+                        <a href="agenda.html">Agenda</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+
+	<a  name="informacion"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Contacto</h2>
+                    <form class="form-horizontal"  id="form" name="form" method="post" action="datos/envio.php">
+                      <div class="form-group">
+                        <label for="inputNombre" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="50" required="required">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputCorreo" class="col-sm-2 control-label">Correo</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="correo" name="correo" placeholder="correo" maxlength="50" required="required">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputTelefono" class="col-sm-2 control-label">Teléfono</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="telefono" name="telefono" placeholder="teléfono" maxlength="15">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputAsunto" class="col-sm-2 control-label">Asunto</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="asunto" name="asunto" placeholder="asunto" maxlength="100" required="required">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputMensaje" class="col-sm-2 control-label">Mensaje</label>
+                        <div class="col-sm-10">
+                          <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="mensaje" maxlength="1000" required="required"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10" id="result">
+                          <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Enviar" />
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <img class="img-responsive" src="img/contacto.png" alt="" style="padding-top: 30px; max-width: 300px;">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+
+    <a  name="contacto"></a>
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contactos<br/><br/></h2>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+                    <p><strong>Alejandra Llanos Celis</strong><br/>Coordinadora Feria Laboral 2017 <br/>Facultad de Ingeniería<br/>alejandra.llanos@usach.cl<br/>2271 83 082</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+                    <p><strong>Julia Ortúzar Jiménez</strong><br/>Coordinadora Feria Laboral 2017 <br/>Facultad de Administración y Economía<br/>julia.ortuzar@usach.cl <br/>2271 80 853</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+                    <p><strong>Felipe Lira</strong><br/>Equipo coordinación Feria Laboral 2017<br/>Facultad de Administración y Economía<br/>felipe.lira@usach.cl<br/>2271 83 018</p>
+                </div>
+            </div>
+            <div>
+  
+</div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="index.html">Feria Laboral</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="alumnos.html">Alumnos</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="empresas.html">Empresas</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="agenda.html">Agenda</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Feria Laboral FAE-FING.<br>Universidad de Santiago de Chile.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

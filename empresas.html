@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feria Laboral - FAE - FING</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function() {
+            $().ajaxStart(function() {
+                $('#loading').show();
+                $('#result').hide();
+            }).ajaxStop(function() {
+                $('#loading').hide();
+                $('#result').fadeIn('slow');
+            });
+            $('#form').submit(function() {
+                //var aux = $('#nombre').val();
+                //alert(aux);
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        if(data==1){
+                            $('#enviar').css('background','grey');
+                            $("#enviar").prop('disabled', true );
+                            $('#result').removeClass('msg-error').addClass('msg-ok');
+                            $('#result').html('Mensaje Enviado con Éxito');
+                        }
+                        else if(data==2){
+                            alert('Complete todos los datos');
+                            //alert(data);
+                        }                               
+                        else{
+                            alert(data);
+                            $('#result').addClass('msg-error');
+                            $('#result').html('Error!');
+                        }
+                    }
+                })
+                return false;
+            }); 
+        })  
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo-img">
+                    <img src="img/logo_usach.png" alt="" class="logo-usach" />
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Feria Laboral</a>
+                    </li>
+                    <li>
+                        <a href="alumnos.html">Alumnos</a>
+                    </li>
+                    <li>
+                        <a href="empresas.html">Empresas</a>
+                    </li>
+                    <li>
+                        <a href="agenda.html">Agenda</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+
+	<a  name="informacion"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Empresas</h2>
+                    <p class="lead">La oportunidad para contactar a una amplia gama de estudiantes de la USACH que destacan en el mundo laboral, por su formación académica como por su competencia analítica, capacidad de innovación y adaptación a las exigencias del trabajo.</p>
+                    <p>Prácticas, primer empleo, trabajos part-time y full-time para estudiantes graduados o próximos a graduarse, de las carreras que imparten las facultades de Administración y Economía e Ingeniería.</p>
+                    <p><strong>Actividades que se ofrecen:</strong></p>
+                    <ul>
+                        <li>Charlas en las que  la empresa comparte su quehacer y sus éxitos con los estudiantes; informa acerca de los conocimientos y  habilidades requeridas para las distintas funciones y las posibilidades de desarrollo profesional que ofrece</li>
+                        <li>Recepción de CVs y entrevistas de trabajo,  para identificar al mejor candidato para el cargo.</li>
+                        <li>Elaboración de agenda de entrevistas con la preselección de CV que hace la empresa, de acuerdo a sus requerimientos.</li>
+                        <li>Servicio de publicidad  en línea en el sitio web de  la feria, para facilitar el contacto con los estudiantes y graduados  y la difusión de las necesidades de los puestos ofrecidos.</li>
+                    </ul>
+                    <p>&nbsp;</p>
+                    <p><a class="btn btn-primary btn-sm ancho140" href="docs/Bases_Feria_Laboral_2017.pdf" target="_blank">Bases Participación</a></p>
+                    <p><a class="btn btn-primary btn-sm ancho140" href="inscripcion.html">Form. de Inscripción</a></p>
+                    <p><a class="btn btn-primary btn-sm ancho140" href="#mas-info">+ Información</a></p>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <!-- /.content-section-b -->
+
+    <a  name="participe"></a>
+    <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <img class="img-responsive" src="img/contacto.png" alt="" style="padding-top: 30px; max-width: 300px;float: left;">
+                </div>            
+                <div class="col-lg-5 col-sm-6">                    
+                    <p>Si su organización desea ser parte de la Feria Laboral USACH 2017 ya sea como empresa reclutadora o auspiciadora y darse a conocer a nuestra comunidad, complete el siguiente formulario y nos pondremos en contacto con usted para responderle sus consultas.<br/><br/></p>
+            
+                        <form class="form-horizontal"  id="form" name="form" method="post" action="datos/envio_consulta.php">
+                          <div class="form-group">
+                            <label for="inputNombre" class="col-sm-3 control-label">Empresa</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Nombre Empresa" maxlength="50" required="required">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputRut" class="col-sm-3 control-label">Rut Empresa</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="rut" name="rut" placeholder="Rut Empresa" maxlength="12" required="required">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputCorreo" class="col-sm-3 control-label">Contacto</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre contacto responsable" maxlength="50" required="required">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputCorreo" class="col-sm-3 control-label">Correo</label>
+                            <div class="col-sm-9">
+                              <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo contacto" maxlength="50" required="required">
+                            </div>
+                          </div>                      
+                          <div class="form-group">
+                            <label for="inputTelefono" class="col-sm-3 control-label">Teléfono</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono contacto" maxlength="15">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputMensaje" class="col-sm-3 control-label">Mensaje</label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Mensaje" maxlength="1000" required="required"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10" id="result">
+                              <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Enviar" />
+                            </div>
+                          </div>
+                          <div id="result"></div>
+                        </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+<!--  -->
+    <a  name="mas-info"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="clearfix"></div>
+                    <p class="lead">Más Información.</p>
+                    <p>Las empresas participantes podran seleccionar a candidatos de las <a href="#" data-toggle="modal" data-target="#modalCarreras">carreras</a> pertecientes a la Facultad de Administración y Economía (FAE) y Facultad de Ingeniería (FING). Para ser parte de la Feria Laboral debe realizar los siguientes pasos.</p>
+                    <p><strong>Etapas de Inscipción:</strong></p>
+                    <ul>
+                        <li>Completar formulario de inscripción (<a href="inscripcion.html">aquí</a>).</li>
+                        <li>Enviar orden de compra a Encargada de Finanzas Feria Laboral. (<a href="#" data-toggle="modal" data-target="#modalOrdenCompra">Ver más</a>)
+                        <li>Realizar tranferencia electrónica o depósito bancario. (<a href="#" data-toggle="modal" data-target="#modalPago">Ver más</a>)</li>
+                        <li>Subida de requerimientos para la Feria Laboral (Pronto disponible)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="index.html">Feria Laboral</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="alumnos.html">Alumnos</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="empresas.html">Empresas</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="agenda.html">Agenda</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Feria Laboral FAE-FING.<br/><a href="mailto:ferialaboral@usach.cl">ferialaboral@usach.cl</a><br/>Universidad de Santiago de Chile.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- Modal Carreras -->
+<div id="modalCarreras" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Carreras Participantes</h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>Facultad de Administración y Economía</strong></p>
+        <p>Administración Pública<br/>
+        Contabilidad y Auditoría<br/>
+        Ingeniería Comercial en Administración<br/>
+        Ingeniería Comercial en Economía</p>
+        <p><strong>Facultad de Ingeniería</strong></p>
+        <p>Ingeniería Ambiental<br/>
+        Ingeniería Biotecnología<br/>
+        Ingeniería Civil Industrial<br/>
+        Ingeniería Civil Informática<br/>
+        Ingeniería Civil en Electricidad<br/>
+        Ingeniería Civil en Geografía<br/>        
+        Ingeniería Civil en Mecánica<br/>
+        Ingeniería Civil en Metalurgia<br/>
+        Ingeniería Civil en Metalurgia<br/>
+        Ingeniería Civil en Minas<br/>
+        Ingeniería Civil en Obras Civiles<br/>
+        Ingeniería Civil Química<br/>
+        Ingeniería en Ejecución en Electricidad<br/>
+        Ingeniería de Ejecución en Geomensura<br/>
+        Ingeniería de Ejecución Industrial<br/>
+        Ingeniería de Ejecución Computación e Informática<br/>
+        Ingeniería de Ejecución en Mecánica<br/>
+        Ingeniería de Ejecución en Climatización<br/>
+        Ingeniería de Ejecución en Metalurgia<br/>
+        Ingeniería de Ejecución en Metalurgia<br/>
+        Ingeniería de Ejecución Química<br/>
+        Ingeniería de Ejecución Minas</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Orden de Compra -->
+<div id="modalOrdenCompra" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Antedecentes para Orden de Compra</h4>
+      </div>
+      <div class="modal-body">
+            <p>Para la emisión de la orden de compra debe realizarse con la siguiente información</p>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th colspan="2" style="text-transform: uppercase;">Antedecentes del Proveedor:</td></tr>
+                <tr><th>Bien o Servicio a Contratar</th><td>Participación en la Feria Laboral FAE-FING USACH 2017</td></tr>
+                <tr><th>Razón Social</th><td>Fundación Universidad Empresa FUDE</td></tr>
+                <tr><th>RUT</th><td>72.499.400-8</td></tr>
+                <tr><th>Giro, actividad económica SII</th><td>Promoción del Desarrollo Tecnológico</td></tr>
+                <tr><th>Teléfono</th><td>2271 81400</td></tr>
+                <tr><th>Sitio Web</th><td><a href="http://www.fude.usach.cl/" target="_blank">www.fude.usach.cl/</a></td></tr>
+                <tr><th>Correo</th><td><a href="mailto:sdt@usach.cl">sdt@usach.cl</a></td></tr>
+                <tr><th>Dirección</th><td>Alameda Bernardo OHiigins 1611, Santiago.</td></tr>
+                <tr><th colspan="2" style="text-transform: uppercase;">Enviar Documentación a:</td></tr>
+                <tr><th>Nombre Contacto</th><td>Laura Lillo</td></tr>
+                <tr><th>Cargo</th><td>Encargada de Finanzas Feria Laboral 2017</td></tr>
+                <tr><th>Teléfono</th><td>2271 80813</td></tr>
+                <tr><th>Correo</th><td><a href="mailto:laura.lillo@usach.cl">laura.lillo@usach.cl</a></td></tr>
+              </tbody>
+            </table>
+            <p>Nota: La Fundación Universidad Empresa (FUDE) es quien elabora las facturas, sin embargo, la tramitación de los pagos es administrada por la organización de la feria laboral.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Pago -->
+<div id="modalPago" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pago del Servicio </h4>
+      </div>
+      <div class="modal-body">
+            <p>El pago se realiza por medio de transferia electrónica o depósito bancario a:</p>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Razón Social</th><td>Fundación Universidad Empresa FUDE</td></tr>
+                <tr><th>RUT</th><td>72.499.400-8</td></tr>
+                <tr><th>Banco</th><td>BCI</td></tr>
+                <tr><th>Cta.Cte</th><td>10503382</td></tr>
+                <tr><th>Correo</th><td><a href="mailto:laura.lillo@usach.cl">laura.lillo@usach.cl</a></td></tr>
+              </tbody>
+            </table>
+            <p>Recuerde notificar su pago adjuntando su Notificación de Transferencia Electrónica o Comprobante de Depósito mediante correo electrócnico a Laura Lillo (laura.lillo@usach.cl) para confirmar el pago de su partición en la Feria Laboral FAE-FING USACH 2017.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

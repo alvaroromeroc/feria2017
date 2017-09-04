@@ -27,7 +27,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -43,28 +43,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Feria Laboral</a>
+                <div class="logo-img">
+                    <img src="img/logo_usach.png" alt="" class="logo-usach" />
+                </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#informacion">Información</a>
+                        <a href="index.html">Feria Laboral</a>
                     </li>
                     <li>
-                        <a href="#carreras">Carreras</a>
+                        <a href="alumnos.html">Alumnos</a>
                     </li>
                     <li>
-                        <a href="#empresas">Empresas</a>
+                        <a href="empresas.html">Empresas</a>
                     </li>
                     <li>
-                        <a href="#contacto">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="#New Button">New Button</a>
-                    </li>
-                    <li>
-                        <a href="#redes">Redes</a>
+                        <a href="agenda.html">Agenda</a>
                     </li>
                 </ul>
             </div>
@@ -82,23 +78,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                    <br>
-                    <br>
-                    <br>
-                        <!--h1>Feria Laboral FAE-FING 2017</h1>
-                        <h3>14 y 15 de Noviembre</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                            </li>
-                        </ul-->
+                        <img src="img/logo_feria.png" class="logo-feria">
                     </div>
                 </div>
             </div>
@@ -120,10 +100,15 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Feria Laboral</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                    <p class="lead">VII FERIA LABORAL 2017</p>
+                    <p>Las facultades de Administración y Economía (FAE) e Ingeniería (FING) de la USACH, les invitan a la VII Feria Laboral 2017, destinada a promover la incorporación de estudiantes graduados o próximos a graduarse, al mundo del trabajo. 
+                    La Feria ha sido concebida como una actividad para facilitar el funcionamiento del mercado laboral. Por un lado convoca a estudiantes universitarios que buscan empleo y por otro, a las empresas privadas y del Estado, instituciones públicas y organismos internacionales, que están en el proceso de selección de nuevos profesionales. </p>
+                    <p>Los estudiantes logran un mayor conocimiento de sus oportunidades de trabajo; ampliación y mejora de la red de contactos profesionales y el desarrollo de habilidades para la inserción laboral.
+                    Históricamente, la feria ha congregado a cerca de 40 empresas interesadas en captar a talentos jóvenes de la Universidad de Santiago de Chile y ha sido visitada por más de 300  estudiantes durante sus dos días de funcionamiento. 
+                    Este año la feria se llevara a cabo los días 27 y 28 de noviembre en la Fundación Telefónica, ubicada en Av. Providencia 111 (Estación metro Baquedano).</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/ipad.png" alt="">
+                    <img class="img-responsive" src="img/rocket.gif" alt="">
                 </div>
             </div>
 
@@ -146,11 +131,11 @@
                     <ul class="list-inline banner-social-buttons">
                         <li>
                             <!--a href="#" class="btn btn-default btn-lg"><i class="fa fa-group fa-fw"></i> <span class="network-name">Alumnos</span></a-->
-                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modalInfoAlumnos"><i class="fa fa-group fa-fw"></i> Alumnos</button>
+                            <a href="alumnos.html" class="btn btn-default btn-lg"><i class="fa fa-group fa-fw"></i> Alumnos</a>
                         </li>
                         <li>
                             <!--a href="#" class="btn btn-default btn-lg"><i class="fa fa-suitcase fa-fw"></i> <span class="network-name">Empresas</span></a-->
-                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modalInfoEmpresas"><i class="fa fa-suitcase fa-fw"></i> Empresas</button>
+                            <a href="empresas.html" class="btn btn-default btn-lg"><i class="fa fa-suitcase fa-fw"></i> Empresas</a>
                         </li>
                     </ul>
                 </div>
@@ -161,41 +146,15 @@
         <!-- /.container -->
 
     </div>
-    <!-- /.content-section-a -->
 
-    <a  name="carreras"></a>
-	<div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Carreras Participantes</h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalCarreras">Ver Carreras</button>
-
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/phones.png" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <a  name="empresas"></a>
+    <a  name="participantes"></a>
     <div class="content-section-b">
 
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Empresas</h2>
+                    <h2>Empresas participantes ferias pasadas</h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
@@ -390,7 +349,8 @@
     <section id="contact" class="map">
         <!--iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe-->
 
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1673.23077426147!2d-70.68068958618247!3d-33.45050813764193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c4f874980f63%3A0xd5ccbf0baec36213!2sPlanetario!5e0!3m2!1ses!2scl!4v1499868828020" allowfullscreen></iframe>
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d213.66969171294477!2d-70.63675195597956!3d-33.43569409100822!2m3!1f112.06751054852323!2f66.03274907479624!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x9662c584a533f46b%3A0xc18d3ff00cae1ad2!2sAv.+Providencia+111%2C+Providencia%2C+Regi%C3%B3n+Metropolitana!5e1!3m2!1ses!2scl!4v1503433497616" allowfullscreen></iframe>
+
         <br />
         <small>
             <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
@@ -404,137 +364,28 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="#">Inicio</a>
+                            <a href="index.html">Feria Laboral</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#informacion">Información</a>
+                            <a href="alumnos.html">Alumnos</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#carreras">Carreras</a>
+                            <a href="empresas.html">Empresas</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#empresas">Empresas</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contacto">Contacto</a>
+                            <a href="agenda.html">Agenda</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Feria Laboral FAE-FING.<br>Universidad de Santiago de Chile.</p>
+                    <p class="copyright text-muted small">Feria Laboral FAE-FING.<br/><a href="mailto:ferialaboral@usach.cl">ferialaboral@usach.cl</a><br/>Universidad de Santiago de Chile.</p>
                 </div>
             </div>
         </div>
     </footer>
-
-<!-- Modal Carreras -->
-<div id="modalCarreras" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Carreras Participantes</h4>
-      </div>
-      <div class="modal-body">
-        <p>Administración Pública (FAE)<br/>
-        Contabilidad y Auditoría (FAE)<br/>
-        Ingeniería Ambiental (FING)<br/>
-        Ingeniería Biotecnología (FING)<br/>
-        Ingeniería Civil Industrial (FING)<br/>
-        Ingeniería Civil Informática (FING)<br/>
-        Ingeniería Civil en Electricidad (FING)<br/>
-        Ingeniería Civil en Geografía (FING)<br/>        
-        Ingeniería Civil en Mecánica (FING)<br/>
-        Ingeniería Civil en Metalurgia (FING)<br/>
-        Ingeniería Civil en Metalurgia (FING)<br/>
-        Ingeniería Civil en Minas (FING)<br/>
-        Ingeniería Civil en Obras Civiles (FING)<br/>
-        Ingeniería Civil Química (FING)<br/>
-        Ingeniería Comercial en Administración (FAE)<br/>
-        Ingeniería Comercial en Economía (FAE)<br/>
-        Ingeniería en Ejecución en Electricidad (FING)<br/>
-        Ingeniería de Ejecución en Geomensura (FING)<br/>
-        Ingeniería de Ejecución Industrial (FING)<br/>
-        Ingeniería de Ejecución Computación e Informática (FING)<br/>
-        Ingeniería de Ejecución en Mecánica (FING)<br/>
-        Ingeniería de Ejecución en Climatización (FING)<br/>
-        Ingeniería de Ejecución en Metalurgia (FING)<br/>
-        Ingeniería de Ejecución en Metalurgia (FING)<br/>
-        Ingeniería de Ejecución Química (FING)<br/>
-        Ingeniería de Ejecución Minas (FING)</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div> 
-
-<!-- Modal Alumnos -->
-<div id="modalInfoAlumnos" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Información Alumnos</h4>
-      </div>
-      <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu <a href=#>link para algo</a>.</p>
-        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.</p>
-        <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-        <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet <a href="#">link a otro cosa</a>.</p>
-        <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Modal Empresas -->
-<div id="modalInfoEmpresas" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Información Empresas</h4>
-      </div>
-      <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu <a href=#>link para algo</a>.</p>
-        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.</p>
-        <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-        <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet <a href="#">link a otro cosa</a>.</p>
-        <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>    
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
 </body>
 
 </html>
