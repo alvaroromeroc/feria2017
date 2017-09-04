@@ -18,17 +18,19 @@ h4,
 h5,
 h6 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
 }
 
+p{
+    text-align: justify;
+}
 .topnav {
-    font-size: 14px; 
+    font-size: 16px; 
 }
 
 .lead {
-    font-size: 25px;
-    font-weight: 400;
-    color: red;
+    font-size: 17px;
+    font-weight: 700;
+    color: #174893;
 }
 
 .intro-header {
@@ -37,13 +39,19 @@ h6 {
     text-align: center;
     color: #f8f8f8;
     background: url(../img/intro-bg.jpg) no-repeat center center;
+    background-attachment: fixed
     background-size: cover;
 }
 
+.logo-feria{
+    max-width: 90%;
+}
+
+
 .intro-message {
     position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .intro-message > h1 {
@@ -95,17 +103,18 @@ h6 {
 
 .content-section-a {
     padding: 50px 0;
-    background-color: #f8f8f8;
 }
 
 .content-section-b {
     padding: 50px 0;
+    background-color: #f8f8f8;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
 }
 
 .section-heading {
     margin-bottom: 30px;
+    color: #174893;
 }
 
 .section-heading-spacer {
@@ -136,6 +145,13 @@ h6 {
     margin-top: 0;
 }
 
+.logo-usach{
+    width: 180px;
+    padding: 5px 0;
+    transition-property: width, left;
+    transition-duration: 1s, 2s;
+}
+
 @media(max-width:1199px) {
     ul.banner-social-buttons {
         float: left;
@@ -159,7 +175,21 @@ h6 {
     ul.banner-social-buttons > li:last-child {
         margin-bottom: 0;
     }
+    .logo-usach{
+        width: 110px;
+    }
 }
+
+/*.navbar-right{
+    position: relative;
+    bottom: 5px;
+    right: 10px;
+}
+@media (min-width: 768px){
+.navbar-default .navbar-collapse{
+    position: relative;
+}
+}*/
 
 footer {
     padding: 50px 0;
@@ -198,6 +228,10 @@ p.copyright {
 @media(max-width:768px) {
     .map {
         height: 75%;
+    }
+    .navbar-nav>li>a {
+        padding-top: 5px !important;
+        padding-bottom: 15px;
     }
 }
 
@@ -246,4 +280,7 @@ p.copyright {
     position: relative;
     padding: 15px 15px 15px 25px;
     text-align: center;
+}
+.ancho140{
+    width: 140px;
 }
